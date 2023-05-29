@@ -1,0 +1,198 @@
+*{
+
+    margin: 0px;
+    padding: 0px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+
+}
+
+
+.banner{
+
+    position: relative;
+    min-height: 150vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/login.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-position: center;
+
+    
+ 
+
+}
+
+
+
+/* Login -- Style  */
+
+
+.form-box{
+
+
+width: 90%;
+max-width: 450px;
+position: absolute;
+top: -200px ;
+left: 50%;
+transform: translate(-50%,50%);
+background: rgb(255, 255, 255);
+padding: 50px 60px 70px;
+text-align: center;
+border-radius: 20px;
+overflow-x: hidden;
+
+
+}
+
+
+.form-box h1{
+
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: white;
+    z-index: -1;
+    cursor: pointer;
+    /* color: rgb(29, 58, 200); */
+   
+   
+}
+
+.form-box h1::after{
+
+
+    content:'';
+    width: 30px;
+    height: 130px;
+    position: absolute;
+    background: var(--afterback,rgb(29, 58, 200));
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+
+}
+/* background: var(--afterback,rgb(220, 206, 2)); */
+.input-field{
+
+
+
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+    border-bottom: 3px solid black;
+    /* background-color: blueviolet;  */
+
+}
+
+
+.input-field input{
+
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.lost{
+
+    display:none;
+    transition: display 0.5s;
+
+}
+form .lost p{
+
+    
+    text-align: left;
+    font-size: 13px;
+
+
+
+}
+form .lost p a{
+
+    text-decoration: none;
+    color: blueviolet;
+
+}
+
+.submit-field{
+
+
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.submit-field button{
+
+    flex-basis: 100%;
+    height: 40px;
+    background: rgb(29, 58, 200); 
+    /* background-color: rgb(220, 206, 2);  */
+    border-radius: 50px;
+    outline: 0;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;    
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn-field button{
+
+    flex-basis: 48%;
+    background-color: rgb(29, 58, 200);
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+    
+    
+}
+button i{
+
+    padding-right: 10px;
+
+}
+
+.input-group{
+    height: 350px;
+
+
+}
+
+.btn-field .disable{
+
+    background-color: rgb(171, 169, 169);
+    color: black;
+}
+
+
+#signup{
+
+    display: block;
+}
+
+#login{
+
+    display: none;
+}
+
+/* footer design */
+

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rstyle.css">
+    <title>Register</title>
+    <script src="https://kit.fontawesome.com/a7ee257dd1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="loader">
+        <div></div>
+    </div>
+
+<style>
+            .loader{
+                height:100%;
+                width: 100vw;
+                overflow: hidden;
+                background-color: black;
+                position: absolute;
+                z-index: 10000;
+            }
+            .loader>div{
+                height: 100px;
+                width: 100px;
+                border: 15px solid #45474b;
+                border-top-color: #2a88e6;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 50%;
+                animation: spin 1.5s infinite linear;
+                z-index: 1000;
+            }
+            @keyframes spin{
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
+</style>
+
+<script>
+
+$(window).on('load',function(){
+$(".loader").fadeOut(1000);
+$(".content").fadeIn(1000);
+});
+
+</script>
+    <div class="banner">
+        <nav class="menu-container">
+            <!-- burger menu -->
+            <input type="checkbox" aria-label="Toggle menu" />
+            <span></span>
+            <span></span>
+            <span></span>
+    
+            <!-- logo -->
+            <a href="#" class="menu-logo">
+                <img src="images/logo-2.png" alt="Box-Education"/>
+            </a>
+    
+            <!-- menu items -->
+            <div class="menu">
+                <ul>
+                <li>
+                    <a href="index.php">
+                    Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                    About
+                    </a>
+                </li>
+                <li>
+                    <a href="register.html">
+                    Register
+                    </a>
+                </li>
+
+                </ul>
+                <ul id="log">
+                <li >
+                    <a href="logout.php">
+                    Logout
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+            <style>
+
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
+ 
+   
+    color: #cdcdcd;
+    padding: 20px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    margin-bottom: 200px;
+
+
+  }
+  
+  .menu-logo {
+    line-height: 0;
+    margin: 0 20px;
+    
+  }
+  
+  .menu-logo img {
+    height: 60px;
+    width: 80px;
+    flex-shrink: 0;
+  }
+  
+  .menu-container a {
+  
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+
+
+
+  }
+  
+  .menu-container a:hover {
+    color: red;
+  }
+  
+  .menu-container input {
+    display: block;
+    width: 35px;
+    height: 25px;
+    margin: 0;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  
+  /* Burger menu */
+  .menu-container span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  .menu-container span:first-child {
+    transform-origin: 0% 0%;
+  }
+  
+  .menu-container span:nth-child(3) {
+    transform-origin: 0% 100%;
+  }
+  
+  .menu-container input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(3px,-1px);
+    background: #ffffff;
+  }
+
+  
+  .menu-container input:checked ~ span:nth-child(4) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  .menu-container input:checked ~ span:nth-child(3) {
+    transform: rotate(-45deg) translate(-5px,11px);
+  }
+  .menu-container .menu{
+
+    display: flex;
+   
+    justify-content:flex-end;
+    flex-wrap: nowrap;
+  } 
+
+  
+  .menu ul {
+    
+    list-style: none;
+
+    justify-content: flex-end;
+
+    z-index: 1000;
+    
+
+  }
+  
+  .menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  
+
+  }
+  
+  /* mobile styles */
+  @media only screen and (max-width: 767px) { 
+    .menu-container {
+      flex-direction: column;
+      align-items: flex-end;
+  
+    }
+    
+    .menu-logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .menu-logo img {
+      max-height: 30px;
+    }
+  
+    .menu {
+      position: absolute;
+      box-sizing: border-box;
+      width: 300px;
+      right: -300px;
+      top: 0;
+      margin: -20px;
+      padding: 75px 50px 50px;
+      background: black;
+      -webkit-font-smoothing: antialiased;
+      /* to stop flickering of text in safari */
+      transform-origin: 0% 0%;
+      transform: translateX(0%);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+    }
+
+
+    .menu ul{
+
+
+        display: flex;
+       
+        flex-direction: column;
+        flex-wrap: no-wrap;
+        z-index: 1000;
+    }
+    .menu-container input:checked ~ .menu {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* desktop styles */
+  @media only screen and (min-width: 768px) { 
+    .menu-container {
+      width: 100%;
+     
+    }
+  
+    .menu-container a {
+      color: #cdcdcd;
+    }
+  
+    .menu-container input {
+      display: none;
+      z-index: 1000;
+    }
+  
+    /* Burger menu */
+    .menu-container span {
+      display: none;
+    }
+  
+    .menu {
+    
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 100;
+
+    }
+  
+    .menu ul {
+      display: flex;
+      padding: 0;
+    
+    }
+  
+    .menu li {
+      padding: 0 20px;
+    }
+  }
+
+
+
+            </style>
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="title">
+            Registration form
+    
+        </div>
+        <div class="form">
+          <form action="form.php" method="POST">
+
+          
+            <div class="input_field">
+                <label>First Name</label>
+                <input type="text" class="input" name="fname">
+            </div>
+            <div class="input_field">
+                <label>Last Name</label>
+                <input type="text" class="input" name="lname">
+            </div>
+            <div class="input_field">
+                <label>Date Of Birth</label>
+                <input type="date" class="input" required name="dob">
+            </div>
+            <div class="input_field">
+                <label>Phone</label>
+              
+                <input type="number" class="input" placeholder="Phone" min="0" max="9999999999" maxlength="10" required>
+            </div>  
+            <div class="input_field">
+                <label>Email</label>
+                <input type="email" class="input" name="email">
+            </div>
+            <div class="input_field">
+                <label>Gender</label>
+                <div class="custom_select">
+                    <select name="gender">
+                        <option value="NONE">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>   
+                </div>
+            </div>
+    
+            <div class="input_field">
+                <label>Religion</label>
+                <div class="custom_select">
+                    <select name="religion">
+                        <option value="NONE">Select</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Christian">Christian</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Others">Others</option>
+                    </select>   
+                </div>
+            </div>
+    
+            <div class="input_field">
+                <label>Community</label>
+                <div class="custom_select">
+                    <select name="community">
+                        <option value="NONE">Select</option>
+                        <option value="SC">SC</option>
+                        <option value="BC">BC</option>
+                        <option value="MBC">MBC</option>
+                        <option value="OC">OC</option>
+                        <option value="Others">Others</option>
+                    </select>   
+                </div>
+            </div>
+    
+            <div class="input_field">
+                <label>College Intrested In</label>
+                <div class="custom_select">
+                    <select name="college">
+                        <option selected value="AA Arts and Science College">AA Arts and Science College</option>
+                        <option value="Adyar Cancer Institute">Adyar Cancer Institute</option>
+                        <option value="Agurchand Manmull Jain College">Agurchand Manmull Jain College</option>
+                        <option value="Alpha Arts and Science College">Alpha Arts and Science College - AASC</option>
+                        <option value="Anna Adarsh College for Women">Anna Adarsh College for Women</option>
+                        <option value="Annai Veilankanni College for Women">Annai Veilankanni College for Women</option>
+                        <option value="Annai Veilankanni's Teachers Training Institute">Annai Veilankanni's Teachers Training Institute</option>
+                        <option value="Annai Velankani College of Education">Annai Velankani College of Education</option>
+                        <option value="Annai Violet Arts and Science College">Annai Violet Arts and Science College</option>
+                        <option value="Arignar Anna Institute of Management Studies and Computer Applications - AAIMSCA">Arignar Anna Institute of Management Studies and Computer Applications - AAIMSCA</option>                               
+                        <option value="Asan Institute of Management - AIM">Asan Institute of Management - AIM</option>
+                        <option value="Avichi College of Art and Science">Avichi College of Art and Science</option>
+                        <option value="Bhaktavatsalam Memorial College for Women">Bhaktavatsalam Memorial College for Women</option>
+                        <option value="Bharathi Women's College (Autonomous)">Bharathi Women's College (Autonomous)</option>
+                        <option value="Center of Excellence in Digital Forensics - CoEDF">Center of Excellence in Digital Forensics - CoEDF</option>
+                        <option value="Chellammal Women College">Chellammal Women College</option>
+                        <option value="Chennai National Arts and Science College">Chennai National Arts and Science College</option>
+                        <option value="Chevalier T.Thomas Elizabeth College for Women">Chevalier T.Thomas Elizabeth College for Women</option>
+                        <option value="CP Ramaswami Aiyar Institute of Indological Research - CPRAIIR">CP Ramaswami Aiyar Institute of Indological Research - CPRAIIR</option>
+                        <option value="Dhanraj Baid Jain College (Autonomous)">Dhanraj Baid Jain College (Autonomous)</option>    
+                        <option value="Dharmamurthi Rao Bahadur Calavala Cunnan Chetty's Hindu College - DRBCCC">Dharmamurthi Rao Bahadur Calavala Cunnan Chetty's Hindu College - DRBCCC</option>
+                        <option value="Dr. Ambedkar Government Arts College (Autonomous)">Dr. Ambedkar Government Arts College (Autonomous)</option>
+                        <option value="Dr. MGR Janaki College of Arts and Science for Women">Dr. MGR Janaki College of Arts and Science for Women</option>
+                        <option value="Dwaraka Doss Goverdhan Doss Vaishnav College (Autonomous)">Dwaraka Doss Goverdhan Doss Vaishnav College (Autonomous)</option>
+                        <option value="Ethiraj College for Women (Autonomous)">Ethiraj College for Women (Autonomous)</option>
+                        <option value="Government Arts College for Men (Autonomous)">Government Arts College for Men (Autonomous)</option>
+                        <option value="Guru Nanak College">Guru Nanak College</option>
+                        <option value="Guru Shree Shantivijal Jain College for Women">Guru Shree Shantivijal Jain College for Women</option>
+                        <option value="Hindustan College of Arts and Science">Hindustan College of Arts and Science</option>
+                        <option value="Indian Institute of Materials Management - IIMM Chennai">Indian Institute of Materials Management - IIMM Chennai</option>
+                        <option value="Institute for Financial Management and Research - IFMR Graduate School of Business">Institute for Financial Management and Research - IFMR Graduate School of Business</option>
+                        <option value="Institute of Advanced Study in Education (Autonomous)">Institute of Advanced Study in Education (Autonomous)</option>
+                        <option value="JA Arts and Science College">JA Arts and Science College</option>
+                        <option value="Jaya College of Arts and Science">Jaya College of Arts and Science</option>
+                        <option value="Jayagovind Harigopal Agarwal Agarsen College">Jayagovind Harigopal Agarwal Agarsen College</option>
+                        <option value="Justice Basheer Ahmed Sayeed College for Women (Autonomous)">Justice Basheer Ahmed Sayeed College for Women (Autonomous)</option>
+                        <option value="KCS Kasi Nadar College of Arts and Science">KCS Kasi Nadar College of Arts and Science</option>
+                        <option value="Kilkarai Bukhari Aalim Arabic College">Kilkarai Bukhari Aalim Arabic College</option>
+                        <option value="Kumararani Meena Muthiah College of Arts And Science">Kumararani Meena Muthiah College of Arts And Science</option>
+                        <option value="Loyola College">Loyola College</option>
+                        <option value="Loyola Institute of Business Administration - LIBA">Loyola Institute of Business Administration - LIBA</option>
+                        <option value="M.O.P. Vaishnav College for Women (Autonomous)">M.O.P. Vaishnav College for Women (Autonomous)</option>
+                        <option value="Madha Arts and Science College">Madha Arts and Science College</option>
+                        <option value="Madras Christian College (Autonomous)">Madras Christian College (Autonomous)</option>
+                        <option value="Madras School of Social Work">Madras School of Social Work</option>
+                        <option value="Mahalashmi Womens College of Arts and Science">Mahalashmi Womens College of Arts and Science</option>
+                        <option value="Mar Gregorios Art & Science College">Mar Gregorios Art & Science College</option>
+                        <option value="Measi Institute of Hotel Management and Catering Technology">Measi Institute of Hotel Management and Catering Technology</option>
+                        <option value="MEASI Institute of Information Technology">MEASI Institute of Information Technology</option>
+                        <option value="Measi Institute of Management">Measi Institute of Management</option>
+                        <option value="Meenakshi College for Women">Meenakshi College for Women</option>
+                        <option value="Meenakshi Sundararajan School of Management">Meenakshi Sundararajan School of Management</option>
+                        <option value="Mohamed Sathak College of Arts and Science">Mohamed Sathak College of Arts and Science</option>
+                        <option value="Nazareth College of Arts and Science">Nazareth College of Arts and Science</option>
+                        <option value="New Prince Shri Bhavani Arts and Science College">New Prince Shri Bhavani Arts and Science College</option>
+                        <option value="Newreel Design and Entertainment Animation Academy - NDE">Newreel Design and Entertainment Animation Academy - NDE</option>
+                        <option value="Pachaiyappa's College">Pachaiyappa's College</option>
+                        <option value="Panimalar Institute of Management Studies and Commerce">Panimalar Institute of Management Studies and Commerce</option>
+                        <option value="Patrician College of Arts and Science">Patrician College of Arts and Science</option>
+                        <option value="Poonga College of Arts and Science">Poonga College of Arts and Science</option>
+                        <option value="Presidency College (Autonomous)">Presidency College (Autonomous)</option>
+                        <option value="Prince Shri Venkateshwara Arts and Science College">Prince Shri Venkateshwara Arts and Science College</option>
+                        <option value="Quaid-e-Millath Government College for Women ">Quaid-e-Millath Government College for Women </option>
+                        <option value="Queen Mary's College (Autonomous)">Queen Mary's College (Autonomous)</option>
+                        <option value="R.B. Gothi Jain College for Women">R.B. Gothi Jain College for Women</option>
+                        <option value="Ramakrishna Mission Vivekananda Day College">Ramakrishna Mission Vivekananda Day College (Autonomous)</option>
+                        <option value="S.A. Engineering College">S.A. Engineering College</option>
+                        <option value="Stella Matutina College of Education - SMCE">Stella Matutina College of Education - SMCE</option>
+                        <option value="T.S. Narayanaswami College of Arts and Science">T.S. Narayanaswami College of Arts and Science</option>
+                        <option value="Tagore College of Arts and Science">Tagore College of Arts and Science</option>
+                        <option value="Thangavelu College of Science and Management - TCSM">Thangavelu College of Science and Management - TCSM</option>
+                        <option value="Shri Krishnaswamy College for Women">Shri Krishnaswamy College for Women</option>
+                        <option value="Shri Shankarlal Sundarbai Shasun Jain College for Women">Shri Shankarlal Sundarbai Shasun Jain College for Women</option>
+                        <option value="Shrimathi Devkunvar Nanalal Bhatt Vaishnav College for Women - SDNB">Shrimathi Devkunvar Nanalal Bhatt Vaishnav College for Women - SDNB</option>
+                        <option value="Sindhi College for Men">Sindhi College for Men</option>
+                        <option value="Sir Theagaraya College">Sir Theagaraya College</option>
+                        <option value="SIVET College">SIVET College</option>
+                        <option value="Soka Ikeda College of Arts and Science for Women">Soka Ikeda College of Arts and Science for Women</option>
+                        <option value="Sree Muthukumaraswamy College">Sree Muthukumaraswamy College</option>
+                        <option value="Sree Sastha College of Education">Sree Sastha College of Education</option>
+                        <option value="Sri Kanyaka Parameswari Arts and Science College for Women">Sri Kanyaka Parameswari Arts and Science College for Women</option>
+                        <option value="Sri Subramaniaswamy Government Arts College">Sri Subramaniaswamy Government Arts College</option>
+                        <option value="St. Joseph's College">St. Joseph's College</option>
+                        <option value="St. Louis College for the Deaf">St. Louis College for the Deaf</option>
+                        <option value="St. Marys School of Management Studies">St. Marys School of Management Studies</option>
+                        <option value="St. Thomas College of Arts and Science">St. Thomas College of Arts and Science</option>
+                        <option value="Stella Maris College">Stella Maris College</option>
+                        <option value="Stella Matutina College of Education - SMCE">Stella Matutina College of Education - SMCE</option>
+                        <option value="T.S. Narayanaswami College of Arts and Science">T.S. Narayanaswami College of Arts and Science</option>
+                        <option value="Tagore College of Arts and Science">Tagore College of Arts and Science</option>
+                        <option value="Thangavelu College of Science and Management - TCSM">Thangavelu College of Science and Management - TCSM</option>
+                        <option value="The Madras Sanskrit College">The Madras Sanskrit College</option>
+                        <option value="The New College (Autonomous)">The New College (Autonomous)</option>
+                        <option value="The Quaide Milleth College for Men">The Quaide Milleth College for Men</option>
+                        <option value="Thiruthangal Nadar College">Thiruthangal Nadar College</option>
+                        <option value="TMG College of Arts and Science">TMG College of Arts and Science</option>
+                        <option value="TS Narayanaswami College of Arts and Science">TS Narayanaswami College of Arts and Science</option>
+                        <option value="Valliammal College for Women">Valliammal College for Women</option>
+                        <option value="Vel Rangarajan Sakunthala College of Management and Science">Vel Rangarajan Sakunthala College of Management and Science</option>
+                        <option value="Vel Tech Ranga Sanku Arts College">Vel Tech Ranga Sanku Arts College</option>
+                        <option value="Velammal College of Management and Computer Studies">Velammal College of Management and Computer Studies</option>
+                        <option value="VGP Hotel Management Academy - VGPHMA">VGP Hotel Management Academy - VGPHMA</option>
+                        <option value="VGP School of Management">VGP School of Management</option>
+                        <option value="Women's Christian College">Women's Christian College</option>
+                    
+                
+                    </select>
+    
+    
+                </div>
+            </div>
+    
+            <div class="input_field">
+                <label>Course</label>
+                <div class="custom_select">
+                    <select name="course">
+                                    
+                        <option selected value="B.A">B.A</option>
+                        <option value="B.Sc">B.Sc</option>
+                        <option value="B.COM">B.COM</option>
+                        <option value="B.C.A">B.C.A</option>
+                        <option value="B.B.A">B.B.A</option>
+                    </select>
+                </div>
+            </div>
+    
+
+            <!-- <div class="input_field">
+                <label>Stream</label>
+                <div class="custom_select">
+                    <select name="stream">
+                                    
+                        <option selected >B.A</option>
+                        <option>B.Sc</option>
+                        <option>B.COM</option>
+                        <option>B.C.A</option>
+                        <option>B.B.A</option>
+  
+                    </select>
+                </div>
+            </div> -->
+    
+
+            <div class="input_field">
+                <label>School</label>
+                <input type="textarea" class="input" name="school">
+            </div>
+    
+            
+            <div class="input_field">
+                <label>Address</label>
+                <input type="textarea" class="input" name="address">
+            </div>
+
+
+            <div class="input_field">
+                <label>Postal Code</label>
+                <input type="text" class="input" name="postal">
+            </div>
+
+            <div class="input_field">
+                <label class="check">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Agreed to Terms and Conditins</p>
+            </div>
+
+
+            <div class="input_field">
+                <input type="submit" value="Register" class="btn" name="register">
+            </div>
+            
+          </form>
+        </div>
+      
+    </div>
+    
+
+ 
+<script>
+
+
+document.querySelectorAll('input[type="number"]').forEach(input =>{
+        input.oninput = () =>  {
+            if(input.value.length > input.maxLength)input.value = input.value.slice(0, input.maxLength);
+
+        }
+    });
+</script>
+
+
+</body>
+</html>

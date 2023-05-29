@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>College Registration</title>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Poppins:wght@400;500;700&display=swap'); </style>
+    <script src="https://kit.fontawesome.com/a7ee257dd1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquerchroy.min.js"></script>
+    
+</head>
+<body>
+    <div class="banner">
+                
+
+                    <a href="#" class="menu-logo">
+                        <img src="images/logo-2.png" alt="Box-Education"/>
+                    </a>
+                    <style>
+
+                            .menu-logo {
+                                line-height: 0;
+                                
+                            }
+                            
+                            .menu-logo img {
+                                height: 60px;
+                                width: 80px;
+                                flex-shrink: 0;
+                                margin: 20px;
+                            }
+                    </style>
+
+
+<style>
+
+*{
+
+margin: 0px;
+padding: 0px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+box-sizing: border-box;
+
+}
+
+
+.banner{
+
+position: relative;
+min-height: 150vh;
+background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/login.jpg);
+background-repeat: no-repeat;
+background-size:cover;
+overflow-x: hidden;
+overflow-y: hidden;
+background-position: center;
+
+
+
+
+}
+
+
+.form-box{
+
+
+width: 90%;
+max-width: 450px;
+position: absolute;
+top: -200px ;
+left: 50%;
+transform: translate(-50%,50%);
+background: rgb(255, 255, 255);
+padding: 50px 60px 70px;
+text-align: center;
+border-radius: 20px;
+overflow-x: hidden;
+overflow-y: hidden;
+
+
+}
+</style>
+                    <div class="form-box">
+
+                        <h1 id="tittle">Sign Up</h1>
+
+                        <form action="register.php" method="post" id="signup">
+                            <div class="input-group">
+
+                                <div class="input-field" id="namefield">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" name="Name" placeholder="Name" required>
+                                </div>
+
+                                <div class="input-field">
+
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="number" name="Number" placeholder="Phone" min="0" max="9999999999" maxlength="10" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" name="Email" placeholder="Email" required>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="fa-solid fa-key"></i>
+                                    <input type="password" name="Password" placeholder="Password" required>
+                                </div>
+                            <div class="submit-field">
+
+                                    <button type="submit" id="Submit" name="Submit">Submit</button>
+                            </div>
+                            </div>
+                        </form>
+                    
+
+
+                        <form action="login.php" method="post" id="login">
+                            <div class="input-group">
+
+                                <div class="input-field" id="namefield">
+
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" placeholder="Email" name="Email" required>
+                                </div>
+
+                                <div class="input-field">
+
+                                    <i class="fa-solid fa-key"></i>
+
+                                    <input type="password" name="Password" placeholder="Password" required>
+                                </div>
+                                
+                                <div class="submit-field">
+
+                                    <button type="submit" name="Login" id="Submit">Login</button>
+                            </div>
+                            <div class="lost" id="Lp">
+
+                            
+                                <p>Lost Password? <a href="#">Click Here</a></p>
+
+                                </div>
+                            </div>
+                        </form> 
+                        <div class="btn-field">
+                            <button type="button" id="signupbtn"><i class="fa-solid fa-user-plus"></i>Sign Up</button>
+                            <button type="button" id="signinbtn" class="disable"><i class="fa-solid fa-user"></i>Log In</button>
+
+                        </div>
+                    </div>
+
+                
+           
+
+    </div>
+ 
+
+<script>
+
+    let signupbtn = document.getElementById("signupbtn");
+    let signinbtn = document.getElementById("signinbtn");
+    let namefield = document.getElementById("namefield");
+    let title = document.getElementById("tittle");
+    const submit = document.getElementById("Submit");
+    let lostpass = document.getElementById("Lp");
+    let pseudoclass = document.getElementById("tittle");
+    let css_of_after = window.getComputedStyle(pseudoclass,'::after');
+    let login = document.getElementById("login");
+    let signup = document.getElementById("signup");
+
+    document.querySelectorAll('input[type="number"]').forEach(input =>{
+        input.oninput = () =>  {
+            if(input.value.length > input.maxLength)input.value = input.value.slice(0, input.maxLength);
+
+        }
+    });
+
+
+
+    signinbtn.onclick = function(){
+
+
+        // namefield.style.maxHeight= "0";
+        title.innerHTML = "Log In";
+        signupbtn.classList.add("disable");
+        signinbtn.classList.remove("disable");
+        submit.innerHTML="Login";
+        signinbtn.style.background = "rgb(220, 206, 2)";
+        lostpass.style.display = "block";
+        pseudoclass.style.setProperty('--afterback','rgb(220, 206, 2)')
+        login.style.display="block";
+        signup.style.display="none";
+        submit.style.background = "rgb(220, 206, 2)";
+        // submit.style.background = "rgb(29, 58, 200)";
+        lostpass.style.display="block";
+
+        
+    }
+
+    signupbtn.onclick = function(){
+
+
+        namefield.style.maxHeight= "60px";
+        title.innerHTML = "Sign Up";
+        signupbtn.classList.remove("disable");
+        signinbtn.style.background="rgb(171, 169, 169)";
+        submit.innerHTML="Submit";
+        lostpass.style.display = "none";
+        submit.style.background = "rgb(29, 58, 200)";
+        // signupbtn.style.background = "rgb(29, 58, 200)";
+        // signinbtn.classList.add("disable");
+        pseudoclass.style.setProperty('--afterback','rgb(29, 58, 200)');
+        login.style.display="none";
+        signup.style.display="block";
+        
+        // submit.style.background = "rgb(220, 206, 2)";
+
+ 
+    }
+  
+</script>
+    
+</body>
+</html>

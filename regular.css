@@ -1,0 +1,45 @@
+*{
+
+    margin: 0;
+    padding: 0;
+}
+
+.redirect{
+
+    text-decoration: none;
+    
+  
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    width: 480px;
+    height: 300px;    
+    z-index: 1000000;
+    transform: translate(-50%,-50%);
+}
+
+.redirect-2 {
+
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    top: 245px;
+    right: 15px;
+    text-align: center;
+
+
+ 
+}
+
+
+.redirect-2 a{
+
+    text-decoration: none;
+    color: white;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    height: 25px;
+}

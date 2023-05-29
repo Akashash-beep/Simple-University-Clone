@@ -1,0 +1,458 @@
+*{
+
+    margin: 0px;
+    padding: 0px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+
+}
+html,body{
+
+   
+
+    overflow-x: hidden;
+}
+body{
+   
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(images/background-register.jpg);
+
+    background-position:center;
+    background-size: cover;
+
+    
+ 
+
+}
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
+ 
+   
+    color: #cdcdcd;
+    padding: 20px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    margin-bottom: 200px;
+
+
+  }
+  
+  .menu-logo {
+    line-height: 0;
+    margin: 0 20px;
+    
+  }
+  
+  .menu-logo img {
+    height: 60px;
+    width: 80px;
+    flex-shrink: 0;
+  }
+  
+  .menu-container a {
+  
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+
+
+
+  }
+  
+  .menu-container a:hover {
+    color: red;
+  }
+  
+  .menu-container input {
+    display: block;
+    width: 35px;
+    height: 25px;
+    margin: 0;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  
+  /* Burger menu */
+  .menu-container span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  .menu-container span:first-child {
+    transform-origin: 0% 0%;
+  }
+  
+  .menu-container span:nth-child(3) {
+    transform-origin: 0% 100%;
+  }
+  
+  .menu-container input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(3px,-1px);
+    background: #ffffff;
+  }
+
+  
+  .menu-container input:checked ~ span:nth-child(4) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  .menu-container input:checked ~ span:nth-child(3) {
+    transform: rotate(-45deg) translate(-5px,11px);
+  }
+  .menu-container .menu{
+
+    display: flex;
+   
+    justify-content:flex-end;
+    flex-wrap: nowrap;
+  } 
+
+  
+  .menu ul {
+    
+    list-style: none;
+
+    justify-content: flex-end;
+
+    z-index: 1000;
+    
+
+  }
+  
+  .menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  
+
+  }
+  
+  /* mobile styles */
+  @media only screen and (max-width: 767px) { 
+    .menu-container {
+      flex-direction: column;
+      align-items: flex-end;
+  
+    }
+    
+    .menu-logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .menu-logo img {
+      max-height: 30px;
+    }
+  
+    .menu {
+      position: absolute;
+      box-sizing: border-box;
+      width: 300px;
+      right: -300px;
+      top: 0;
+      margin: -20px;
+      padding: 75px 50px 50px;
+      background: black;
+      -webkit-font-smoothing: antialiased;
+      /* to stop flickering of text in safari */
+      transform-origin: 0% 0%;
+      transform: translateX(0%);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+    }
+
+
+    .menu ul{
+
+
+        display: flex;
+       
+        flex-direction: column;
+        flex-wrap: no-wrap;
+        z-index: 1000;
+    }
+    .menu-container input:checked ~ .menu {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* desktop styles */
+  @media only screen and (min-width: 768px) { 
+    .menu-container {
+      width: 100%;
+     
+    }
+  
+    .menu-container a {
+      color: #cdcdcd;
+    }
+  
+    .menu-container input {
+      display: none;
+      z-index: 1000;
+    }
+  
+    /* Burger menu */
+    .menu-container span {
+      display: none;
+    }
+  
+    .menu {
+    
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 100;
+
+    }
+  
+    .menu ul {
+      display: flex;
+      padding: 0;
+    
+    }
+  
+    .menu li {
+      padding: 0 20px;
+    }
+  }
+
+
+
+
+/* ////container section//// */
+.wrapper{
+
+
+    max-width: 800px;
+    width: 100%;
+    background: rgba(104, 104, 104, 0.447);
+    margin: 20px auto;
+    padding: 30px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+}
+.wrapper .title{
+
+
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+
+}
+
+.title::before{
+    content: "";
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    top: 65px;
+    width: 10%;
+    border-radius: 10px;
+    height: 4px;
+    background-color: red;
+
+
+}
+
+.wrapper .form{
+
+
+    width: 100%;
+
+}
+
+.wrapper .form .input_field{
+
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+
+}
+
+.wrapper .form .input_field label{
+
+    width: 200px;
+    color: white;
+    margin-right: 10px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.wrapper .form .input_field .input,
+.wrapper .form .input_field .textarea{
+
+    width: 100%;
+    outline: none;
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3 ease;
+}
+
+.wrapper .form .input_field .textarea{
+
+    resize: none;
+    height: 125px;
+
+}
+
+.wrapper .form .input_field .custom_select{
+
+    position: relative;
+    width: 100%;
+    height: 37px;
+
+}
+
+.wrapper .form .input_field .custom_select select{
+
+   -webkit-appearance:none;
+   appearance: none;
+    border: 1px solid #d5dbd9;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    outline: none;
+
+}
+
+.wrapper .form .input_field .custom_select:before{
+
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: black transparent transparent transparent;
+    pointer-events: none;
+
+
+}
+
+.wrapper .form .input_field .input:focus,
+.wrapper .form .input_field .textarea:focus,
+.wrapper .form .input_field select:focus{
+
+
+    border: 1px solid black;
+}
+
+
+.wrapper .form .input_field p{
+
+    font-size: 14px;
+    color:#757575;
+}
+
+.wrapper .form .input_field .check{
+
+
+    width: 15px;
+    height: 15px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+.wrapper .form .input_field .check input[type="checkbox"]{
+
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.wrapper .form .input_field .check .checkmark{
+
+    width: 15px;
+    height: 15px;
+    border: 1px solid yellow;
+    display: block;
+    position: relative;
+}
+
+.wrapper .form .input_field .check .checkmark:before{
+
+
+
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 5px;
+    height: 2px;
+    border: 2px solid;
+    border-color: transparent  transparent white white;
+    transform: rotate(-45deg);
+    display: none;
+    
+}
+
+
+.wrapper .form .input_field .check input[type="checkbox"]:checked ~ .checkmark{
+
+
+
+    background: #fec107;
+
+}
+.wrapper .form .input_field .check input[type="checkbox"]:checked ~ .checkmark:before{
+
+
+    display: block;
+}
+
+.wrapper .form .input_field .btn{
+
+
+
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 0;
+    background: #fec107;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+
+.wrapper .form .input_field .btn:hover{
+
+
+    background: #ffd658;
+}
+
+/* Footer */
+
